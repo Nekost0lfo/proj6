@@ -12,6 +12,9 @@ MAD Shop - это современное мобильное приложение
 lib/
 ├── main.dart                 # Точка входа приложения
 ├── screens/                  # Экраны приложения
+│   ├── welcome_screen.dart  # Экран приветствия/онбординга
+│   ├── login_screen.dart    # Экран входа
+│   ├── register_screen.dart # Экран регистрации
 │   ├── home_screen.dart     # Главный экран с каталогом товаров
 │   ├── product_screen.dart  # Экран детальной информации о товаре
 │   └── cart_screen.dart     # Экран корзины покупок
@@ -23,6 +26,29 @@ lib/
 ```
 
 ## 📱 Скриншоты экранов
+
+### Экран приветствия (Welcome Screen)
+![Экран приветствия](screenshots/welcome_screen.png)
+- Иконка приложения в центре экрана
+- Название приложения "MAD Shop"
+- Слоган "Shop Smart, Live Happy"
+- Кнопка "Continue" для перехода к входу
+
+### Экран входа (Login Screen)
+![Экран входа](screenshots/login_screen.png)
+- Поля ввода Email и Password
+- Чекбокс "Remember me"
+- Ссылка "Forgot password"
+- Кнопка "Sign In"
+- Переход к регистрации
+
+### Экран регистрации (Register Screen)
+![Экран регистрации](screenshots/register_screen.png)
+- Поля для ввода имени
+- Поля для ввода Email
+- Поля для ввода и подтверждения пароля
+- Чекбокс для принятия условий
+- Переход к входу
 
 ### Главный экран (Home Screen)
 ![Главный экран](screenshots/home_screen.png)
@@ -48,6 +74,11 @@ lib/
 - Процесс оформления заказа
 
 ### Реализованные переходы
+- **Welcome → Login**: `Navigator.pushReplacement()` при завершении онбординга
+- **Login → Register**: `Navigator.push()` при нажатии "Sign Up"
+- **Register → Login**: `Navigator.pop()` при нажатии "Sign In"
+- **Login → Home**: `Navigator.pushReplacement()` после успешного входа
+- **Register → Home**: `Navigator.pushReplacement()` после успешной регистрации
 - **Home → Product**: `Navigator.push()` с MaterialPageRoute
 - **Product → Home**: `Navigator.pop()` при добавлении в корзину
 - **Home → Cart**: `Navigator.push()` через иконку корзины
@@ -67,21 +98,47 @@ lib/
 
 ### Сверстанные экраны
 
-**1. Главный экран (Home Screen)**
+**1. Экран приветствия (Welcome Screen)**
+- Иконка приложения в круглом контейнере
+- Название "MAD Shop" с использованием `TextStyle`
+- Слоган "Shop Smart, Live Happy"
+- Кнопка "Continue" для навигации к экрану входа
+
+**2. Экран входа (Login Screen)**
+- Форма входа с `TextFormField`
+- Валидация Email и Password
+- Показ/скрытие пароля с иконкой глаза
+- Чекбокс "Remember me"
+- Ссылка "Forgot password"
+- Кнопка "Sign In"
+- Переход к регистрации
+
+**3. Экран регистрации (Register Screen)**
+- Форма регистрации с полями:
+  - Полное имя
+  - Email
+  - Password
+  - Confirm Password
+- Валидация всех полей
+- Чекбокс для принятия условий
+- Кнопка "Create Account"
+- Переход к входу
+
+**4. Главный экран (Home Screen)**
 - Сетка товаров с использованием `GridView.builder`
 - Фильтрация по категориям с `FilterChip`
 - Поисковая строка с `TextField`
 - Индикатор корзины с количеством товаров
 - Карточки товаров с изображениями, названиями, ценами и рейтингами
 
-**2. Экран товара (Product Screen)**
+**5. Экран товара (Product Screen)**
 - Большое изображение товара с `Image.asset`
 - Детальная информация о товаре
 - Селектор количества с кнопками +/- 
 - Кнопка добавления в корзину
 - Отображение рейтинга и количества отзывов
 
-**3. Экран корзины (Cart Screen)**
+**6. Экран корзины (Cart Screen)**
 - Список товаров с `ListView.builder`
 - Миниатюры товаров
 - Элементы управления количеством

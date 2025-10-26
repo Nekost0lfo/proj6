@@ -14,8 +14,9 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MADShopApp());
 
-    // Verify that our app shows the home screen with MAD Shop title.
+    // Verify that our app shows the welcome screen with title.
     expect(find.text('MAD Shop'), findsOneWidget);
-    expect(find.text('Search products...'), findsOneWidget);
+    expect(find.text('Shop Smart, Live Happy'), findsOneWidget);
+    expect(find.text('Continue'), findsOneWidget);
   });
 }

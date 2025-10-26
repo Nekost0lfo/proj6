@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'theme/colors.dart';
 import 'theme/text_styles.dart';
-import 'screens/home_screen.dart';
+import 'screens/welcome_screen.dart';
 
 void main() {
   runApp(const MADShopApp());
@@ -58,7 +58,7 @@ class MADShopApp extends StatelessWidget {
           labelMedium: AppTextStyles.caption,
         ),
       ),
-      home: const HomeScreen(),
+      home: const WelcomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
